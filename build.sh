@@ -1,0 +1,1 @@
+echo "echo 'You rock'" >> binary
