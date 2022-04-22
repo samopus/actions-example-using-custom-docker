@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build Binary
-        run: ./build.sh
+      run: ./build.sh
 
   build-and-push-image:
     runs-on: ubuntu:latest
