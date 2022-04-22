@@ -10,7 +10,7 @@ env:
 
 jobs:
   build-binary:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     container:
       image: ghcr.io/samopus/actions-custom-image-build:2.5
       credentials:
@@ -23,7 +23,7 @@ jobs:
 
   build-and-push-image:
     needs: build-binary
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
     - name: Login to Github Registry
       uses: docker/login-action@v2
