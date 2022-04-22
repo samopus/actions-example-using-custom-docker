@@ -10,7 +10,11 @@ env:
 
 jobs:
   build-binary:
-    runs-on: ghcr.io/samopus/actions-custom-image-build:2.5
+    container:
+      image: ghcr.io/samopus/actions-custom-image-build:2.5
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
     steps:
     - uses: actions/checkout@v3
     - name: Build Binary
