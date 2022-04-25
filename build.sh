@@ -1,3 +1,3 @@
 echo "echo 'You rock'" >> binary
 
-zip package.zip binary
+zip package.zip binary Dockerfile
