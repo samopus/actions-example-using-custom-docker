@@ -6,7 +6,7 @@ on:
   
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: actions-custom-iamge-runtime
+  IMAGE_NAME: samopus/actions-custom-image-runtime
 
 jobs:
   build-binary:
@@ -45,9 +45,10 @@ jobs:
         password: ${{ secrets.PAT_DOCKER_REGISTRY }}
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v2
+      uses: docker/metadata-action@v3
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: latest
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
     - name: Build and push image
