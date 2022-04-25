@@ -1,1 +1,3 @@
 echo "echo 'You rock'" >> binary
+
+zip package.zip binary
