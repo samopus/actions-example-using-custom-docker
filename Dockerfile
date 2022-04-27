@@ -4,4 +4,4 @@ COPY binary binary
 
 RUN chmod +x binary
 
-ENTRYPOINT [ "./binary" ]
+CMD [ "./binary" ]
