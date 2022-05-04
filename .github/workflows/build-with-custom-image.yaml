@@ -63,7 +63,7 @@ jobs:
     needs: build-and-push-image
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/samopus/actions-custom-image-runtime:lates
+      image: ghcr.io/samopus/actions-custom-image-runtime:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.PAT_DOCKER_REGISTRY }}
