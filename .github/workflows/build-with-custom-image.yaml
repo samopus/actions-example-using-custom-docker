@@ -58,3 +58,17 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+      
+  test-image:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/samopus/actions-custom-image-runtime:lates
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.PAT_DOCKER_REGISTRY }}
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v3
+    - name: Run tests
+      run: ./test.sh
+
