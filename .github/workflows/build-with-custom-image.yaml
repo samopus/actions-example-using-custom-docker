@@ -5,11 +5,11 @@ on:
     branches: [ master ]
   
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: quay.io
   IMAGE_NAME: samopus/actions-custom-image-runtime
 
 jobs:
-  build-binary:
+  build-binary: 
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/samopus/actions-custom-image-build:2.5
@@ -41,8 +41,8 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.PAT_DOCKER_REGISTRY }}
+        username: ${{ secrets.QUAY_USER }}
+        password: ${{ secrets.QUAY_SECRET }}
     - name: Extract metadata for Docker
       id: meta
       uses: docker/metadata-action@v3
@@ -63,10 +63,10 @@ jobs:
     needs: build-and-push-image
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/samopus/actions-custom-image-runtime:latest
+      image: quay.io/samu_pusila_cgi/actions-example-using-custom-docker:latest
       credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.PAT_DOCKER_REGISTRY }}
+        username: ${{ secrets.QUAY_USER }}
+        password: ${{ secrets.QUAY_SECRET }}
     steps:
     - name: Checkout 
       uses: actions/checkout@v3
