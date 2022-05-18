@@ -6,7 +6,7 @@ on:
   
 env:
   REGISTRY: quay.io
-  IMAGE_NAME: samopus/actions-custom-image-runtime
+  IMAGE_NAME: samu_pusila_cgi/actions-example-using-custom-docker 
 
 jobs:
   build-binary: 
@@ -37,7 +37,7 @@ jobs:
         name: example-build-package
     - name: Prepare Docker Image
       run: unzip package.zip
-    - name: Login to Github Registry
+    - name: Login to Docker Image Registry
       uses: docker/login-action@v1
       with:
         registry: ${{ env.REGISTRY }}
