@@ -19,6 +19,10 @@ jobs:
     steps:
     - name: Checkout 
       uses: actions/checkout@v3
+    - name: Checkout External Repository TEST
+      uses: actions/checkout@v3
+      with:
+        repository: fmidev/iris_to_hdf5.git
     - name: Build Binary
       run: ./build.sh
     - name: Upload artifact
