@@ -22,7 +22,7 @@ jobs:
     - name: Checkout External Repository TEST
       uses: actions/checkout@v3
       with:
-        repository: fmidev/iris_to_hdf5.git
+        repository: fmidev/iris_to_hdf5
         ref: main
     - name: Build Binary
       run: ./build.sh
